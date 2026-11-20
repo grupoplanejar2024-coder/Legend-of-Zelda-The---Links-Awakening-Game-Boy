@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>The Legend of Zelda: Link's Awakening DX - Kubo Touch</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            background-color: #121214;
+            color: #ffffff;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header {
+            width: 100%;
+            padding: 10px 15px;
+            background: linear-gradient(180deg, #1f1f24 0%, #121214 100%);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #2a2a32;
+            z-index: 10;
+        }
+
+        .brand {
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            color: #4ade80;
+            text-transform: uppercase;
+        }
+
+        .game-title {
+            font-size: 12px;
+            color: #a1a1aa;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 60%;
+        }
+
+        #game-container {
+            width: 100%;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background-color: #09090b;
+        }
+
+        #game {
+            width: 100%;
+            height: 100%;
+            max-width: 600px;
+            max-height: 100%;
+        }
+
+        /* Personalização da interface do EmulatorJS para estilo Game Boy Color */
+        :root {
+            --ejs-primary-color: #4ade80;
+            --ejs-background-color: #121214;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand">KUBO TOUCH</div>
+        <div class="game-title">Zelda: Link's Awakening DX</div>
+    </header>
+
+    <div id="game-container">
+        <div id="game"></div>
+    </div>
+
+    <script>
+        EJS_player = '#game';
+        EJS_core = 'gb';
+        EJS_gameName = 'The Legend of Zelda - Links Awakening DX';
+        EJS_color = '#4ade80';
+        EJS_startOnLoaded = true;
+        EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/';
+        
+        // Certifique-se de que o arquivo da ROM na pasta do GitHub tenha exatamente este nome (ou ajuste abaixo)
+        EJS_gameUrl = 'Legend of Zelda, The - Links Awakening DX (USA, Europe) (Rev 2) (SGB Enhanced) (GB Compatible).gbc';
+        
+        // Opcional: imagem de capa antes de iniciar
+        EJS_backgroundImage = 'gbc_legendofzeldalinksawakeningdx_3_2.jpg';
+
+        // Configurações de controles virtuais para celular
+        EJS_VirtualGamepadSettings = [
+            {
+                type: 'dpad',
+                location: 'left',
+                left: '20px',
+                bottom: '40px',
+                size: 130
+            },
+            {
+                type: 'button',
+                text: 'A',
+                id: 'a',
+                location: 'right',
+                right: '20px',
+                bottom: '75px',
+                size: 62,
+                color: '#ef4444'
+            },
+            {
+                type: 'button',
+                text: 'B',
+                id: 'b',
+                location: 'right',
+                right: '95px',
+                bottom: '45px',
+                size: 62,
+                color: '#eab308'
+            },
+            {
+                type: 'button',
+                text: 'SELECT',
+                id: 'select',
+                location: 'center',
+                left: '34%',
+                bottom: '15px',
+                width: 65,
+                height: 26,
+                fontSize: 10
+            },
+            {
+                type: 'button',
+                text: 'START',
+                id: 'start',
+                location: 'center',
+                right: '34%',
+                bottom: '15px',
+                width: 65,
+                height: 26,
+                fontSize: 10
+            }
+        ];
+    </script>
+    <script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
+
+</body>
+</html>
