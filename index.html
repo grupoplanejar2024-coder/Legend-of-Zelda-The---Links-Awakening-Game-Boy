@@ -56,7 +56,7 @@
         /* Container 3D Interativo */
         .cartridge-wrapper {
             width: 100%;
-            padding: 24px 18px 14px 18px;
+            padding: 25px 10px 15px 10px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -65,130 +65,165 @@
             cursor: pointer;
         }
 
-        /* Cartucho Game Boy 3D em destaque */
-        .gb-cart-showcase {
-            position: relative;
+        /* Cartucho Game Boy */
+        .gb-cart-body {
             width: 240px;
-            border-radius: 14px;
-            overflow: hidden;
-            background: #0d0d0f;
-            transform: translateZ(20px);
-            filter: drop-shadow(0 16px 24px rgba(0,0,0,0.8));
-        }
-
-        .gb-cart-showcase img {
-            display: block;
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-        }
-
-        /* Fallback automático caso cartucho-zelda-dx.jpg falhe */
-        .gb-cart-fallback {
-            display: none;
-            width: 224px;
-            height: 256px;
-            background: linear-gradient(180deg, #a7a6ae 0%, #8e8d95 100%);
-            border-radius: 6px 4px 5px 5px;
-            clip-path: polygon(0 0, calc(100% - 20px) 0, calc(100% - 20px) 15px, 100% 15px, 100% 100%, 0 100%);
-            padding: 14px 12px 10px 12px;
+            height: 274px;
+            position: relative;
+            background: linear-gradient(180deg, #b8b7bf 0%, #9b9aa2 100%);
+            border-radius: 8px 6px 6px 6px;
+            clip-path: polygon(0 0, calc(100% - 22px) 0, calc(100% - 22px) 16px, 100% 16px, 100% 100%, 0 100%);
+            box-shadow: 
+                inset 0 2px 3px rgba(255,255,255,0.6),
+                inset 0 -4px 7px rgba(0,0,0,0.38),
+                inset 3px 0 4px rgba(255,255,255,0.3),
+                inset -3px 0 4px rgba(0,0,0,0.35);
+            display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: space-between;
-            box-shadow: inset 0 2px 3px rgba(255,255,255,0.55), inset 0 -4px 7px rgba(0,0,0,0.4);
+            padding: 16px 0 10px 0;
+            transform: translateZ(20px);
+            filter: drop-shadow(0 15px 22px rgba(0,0,0,0.75));
         }
 
-        .gb-cart-fallback.active {
-            display: flex;
-        }
-
-        .gb-fb-top {
+        /* Faixa superior com logotipo em relevo */
+        .gb-top-band {
             width: 100%;
-            padding: 5px 8px;
-            border-radius: 14px;
-            background: #9a99a1;
-            box-shadow: inset 0 2px 3px rgba(0,0,0,0.35), 0 1px 1px rgba(255,255,255,0.4);
-            text-align: center;
-            font-size: 10px;
-            font-weight: 900;
-            font-style: italic;
-            color: #6f6e76;
-        }
-
-        .gb-fb-sticker {
-            width: 176px;
-            height: 164px;
-            border-radius: 4px;
-            border: 2px solid #2b2618;
-            background: linear-gradient(90deg, #7f857e 0 18px, #a3841b 18px calc(100% - 18px), #7f857e calc(100% - 18px) 100%);
+            height: 40px;
+            padding: 0 14px;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 8px 22px;
-            text-align: center;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.45);
         }
 
-        .gb-fb-sticker small {
+        .gb-logo-oval {
+            width: 100%;
+            height: 36px;
+            background: linear-gradient(180deg, #a3a2aa 0%, #b1b0b8 100%);
+            border-radius: 18px;
+            box-shadow: 
+                inset 0 2px 4px rgba(0,0,0,0.35),
+                0 1px 1px rgba(255,255,255,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gb-logo-text {
+            font-size: 11px;
+            font-weight: 900;
+            font-style: italic;
+            letter-spacing: 0.4px;
+            color: #7c7b83;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.55), 0 -1px 0 rgba(0,0,0,0.3);
+            white-space: nowrap;
+        }
+
+        .gb-logo-text small {
+            font-style: normal;
             font-size: 7px;
             font-weight: 800;
-            letter-spacing: 0.8px;
-            color: #fef08a;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+            margin-left: 2px;
         }
 
-        .gb-fb-sticker strong {
-            margin-top: 2px;
-            font-size: 20px;
-            font-weight: 900;
-            line-height: 1;
-            color: #dc2626;
-            -webkit-text-stroke: 0.7px #fde047;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.75);
+        /* Cavidade central do adesivo (Label) */
+        .gb-label-recess {
+            width: 184px;
+            height: 164px;
+            margin-top: 12px;
+            padding: 3px;
+            background: #84838b;
+            border-radius: 6px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.5), 0 1px 1px rgba(255,255,255,0.45);
+            display: flex;
         }
 
-        .gb-fb-sticker span {
-            margin-top: 4px;
-            font-size: 8px;
-            font-weight: 900;
-            letter-spacing: 0.5px;
-            color: #ffffff;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.85);
+        .gb-label-sticker {
+            width: 100%;
+            height: 100%;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            background: #9c7e1a;
+            border: 1px solid #2b2618;
         }
 
-        .gb-fb-sticker b {
-            margin-top: 4px;
-            font-size: 13px;
-            font-weight: 900;
-            color: #fde047;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.85);
+        /* Abas laterais do adesivo */
+        .gb-sticker-strip {
+            width: 18px;
+            height: 100%;
+            background: linear-gradient(180deg, #8b918a 0%, #737972 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
         }
 
-        .gb-fb-tri {
-            width: 0;
-            height: 0;
-            border-left: 14px solid transparent;
-            border-right: 14px solid transparent;
-            border-top: 14px solid #828189;
+        .gb-sticker-strip.left {
+            border-right: 1px solid rgba(0,0,0,0.35);
         }
 
-        /* Reflexo sutil ao passar o mouse / tocar */
-        .gb-cart-showcase::after {
+        .gb-sticker-strip.right {
+            border-left: 1px solid rgba(0,0,0,0.35);
+        }
+
+        .gb-sticker-strip span {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            font-size: 6px;
+            font-weight: 800;
+            letter-spacing: 0.6px;
+            color: #161816;
+            white-space: nowrap;
+        }
+
+        /* Capa do jogo encaixada no miolo dourado do adesivo */
+        .gb-sticker-art {
+            flex: 1;
+            height: 100%;
+            position: relative;
+            background-color: #9e7f1d;
+            overflow: hidden;
+        }
+
+        /* Enquadra a capa da direita (escudo, espada e logotipo DX) dentro do adesivo */
+        .gb-sticker-art img {
+            width: 285%;
+            height: 100%;
+            max-width: none;
+            object-fit: cover;
+            object-position: right center;
+            transform: translateX(-64.9%);
+            display: block;
+        }
+
+        /* Reflexo sutil no adesivo ao passar o mouse / tocar */
+        .gb-label-sticker::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: -120%;
-            width: 65%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+            top: 0; left: -120%;
+            width: 65%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent);
             transform: skewX(-25deg);
             transition: left 0.6s ease;
+            z-index: 3;
             pointer-events: none;
         }
 
-        .gb-cart-showcase:hover::after {
+        .gb-cart-body:hover .gb-label-sticker::after {
             left: 160%;
+        }
+
+        /* Triângulo inferior do cartucho */
+        .gb-bottom-triangle {
+            margin-top: 8px;
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 15px solid #8c8b93;
+            filter: drop-shadow(0 1px 0 rgba(255,255,255,0.45));
         }
 
         .content { padding: 20px; }
@@ -232,8 +267,8 @@
 
         /* Responsividade para telas de celulares menores */
         @media (max-width: 400px) {
-            .gb-cart-showcase {
-                width: 215px;
+            .gb-cart-body {
+                transform: scale(0.9) translateZ(20px);
             }
         }
     </style>
@@ -247,23 +282,31 @@
     <div id="game-card">
         <!-- Cartucho Game Boy 3D -->
         <div class="cartridge-wrapper" id="cartridge3d">
-            <div class="gb-cart-showcase">
-                <img
-                    id="cartridge-img"
-                    src="cartucho-zelda-dx.jpg"
-                    alt="Cartucho Game Boy The Legend of Zelda: Link's Awakening DX"
-                    onerror="showFallbackCartridge(this)"
-                >
-                <div id="cartridge-fallback" class="gb-cart-fallback" aria-hidden="true">
-                    <div class="gb-fb-top">Nintendo GAME BOY TM</div>
-                    <div class="gb-fb-sticker">
-                        <small>THE LEGEND OF</small>
-                        <strong>ZELDA</strong>
-                        <span>LINK'S AWAKENING</span>
-                        <b>DX</b>
+            <div class="gb-cart-body">
+                <!-- Topo com logotipo em relevo -->
+                <div class="gb-top-band">
+                    <div class="gb-logo-oval">
+                        <span class="gb-logo-text">Nintendo GAME BOY<small>TM</small></span>
                     </div>
-                    <div class="gb-fb-tri"></div>
                 </div>
+
+                <!-- Cavidade e Adesivo do Cartucho -->
+                <div class="gb-label-recess">
+                    <div class="gb-label-sticker">
+                        <div class="gb-sticker-strip left">
+                            <span>DMG-AZLE-USA</span>
+                        </div>
+                        <div class="gb-sticker-art">
+                            <img src="gbc_legendofzeldalinksawakeningdx_3_4.jpg" alt="Capa The Legend of Zelda: Link's Awakening DX">
+                        </div>
+                        <div class="gb-sticker-strip right">
+                            <span>THIS SIDE OUT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Triângulo inferior do cartucho -->
+                <div class="gb-bottom-triangle"></div>
             </div>
         </div>
         
@@ -295,14 +338,6 @@
     </div>
 
     <script type="text/javascript">
-        function showFallbackCartridge(img) {
-            img.style.display = 'none';
-            const fallback = document.getElementById('cartridge-fallback');
-            if (fallback) {
-                fallback.classList.add('active');
-            }
-        }
-
         // Efeito 3D interativo
         const card = document.getElementById('game-card');
         const cartridge = document.getElementById('cartridge3d');
