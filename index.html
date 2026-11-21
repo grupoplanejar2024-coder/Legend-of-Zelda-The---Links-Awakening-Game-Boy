@@ -56,7 +56,7 @@
         /* Container 3D Interativo */
         .cartridge-wrapper {
             width: 100%;
-            padding: 25px 10px 15px 10px;
+            padding: 24px 18px 14px 18px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -65,179 +65,40 @@
             cursor: pointer;
         }
 
-        /* Proporção exata do Cartucho Game Boy (240x274) */
-        .gb-cart-body {
-            width: 240px;
-            height: 274px;
+        /* Moldura do cartucho completo */
+        .gb-cart-showcase {
             position: relative;
-            background: linear-gradient(180deg, #a7a6ae 0%, #8e8d95 100%);
-            border-radius: 6px 4px 5px 5px;
-            clip-path: polygon(0 0, calc(100% - 22px) 0, calc(100% - 22px) 16px, 100% 16px, 100% 100%, 0 100%);
-            box-shadow: 
-                inset 0 2px 3px rgba(255,255,255,0.55),
-                inset 0 -4px 7px rgba(0,0,0,0.4),
-                inset 3px 0 4px rgba(255,255,255,0.25),
-                inset -3px 0 4px rgba(0,0,0,0.35);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 18px 0 10px 0;
+            width: 240px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #0d0d0f;
             transform: translateZ(20px);
-            filter: drop-shadow(0 15px 22px rgba(0,0,0,0.75));
+            filter: drop-shadow(0 16px 24px rgba(0,0,0,0.8));
         }
 
-        /* Faixa superior com ranhuras e logotipo em relevo */
-        .gb-top-band {
-            width: 100%;
-            height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 5px;
-        }
-
-        .gb-side-grooves {
-            width: 24px;
-            height: 36px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 2px 0;
-        }
-
-        .gb-side-grooves span {
+        .gb-cart-showcase img {
             display: block;
             width: 100%;
-            height: 4px;
-            background: #6c6b73;
-            border-bottom: 1px solid rgba(255,255,255,0.45);
-            box-shadow: inset 0 1px 2px rgba(0,0,0,0.45);
+            height: auto;
+            object-fit: contain;
         }
 
-        .gb-logo-oval {
-            flex: 1;
-            height: 40px;
-            background: linear-gradient(180deg, #93929a 0%, #a2a1a9 100%);
-            border-radius: 20px;
-            box-shadow: 
-                inset 0 2px 4px rgba(0,0,0,0.4),
-                0 1px 1px rgba(255,255,255,0.45);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 8px;
-        }
-
-        .gb-logo-text {
-            font-size: 11px;
-            font-weight: 900;
-            font-style: italic;
-            letter-spacing: 0.4px;
-            color: #77767e;
-            text-shadow: 0 1px 0 rgba(255,255,255,0.5), 0 -1px 0 rgba(0,0,0,0.35);
-            white-space: nowrap;
-        }
-
-        .gb-logo-text small {
-            font-style: normal;
-            font-size: 7px;
-            font-weight: 800;
-            margin-left: 2px;
-        }
-
-        /* Cavidade central do adesivo (Label) */
-        .gb-label-recess {
-            width: 184px;
-            height: 162px;
-            margin-top: 14px;
-            padding: 3px;
-            background: #76757d;
-            border-radius: 6px;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.55), 0 1px 1px rgba(255,255,255,0.4);
-            display: flex;
-        }
-
-        .gb-label-sticker {
-            width: 100%;
-            height: 100%;
-            border-radius: 4px;
-            overflow: hidden;
-            position: relative;
-            display: flex;
-            background: #967818;
-            border: 1px solid #2b2618;
-        }
-
-        /* Abas laterais cinzas do adesivo Game Boy */
-        .gb-sticker-strip {
-            width: 20px;
-            height: 100%;
-            background: linear-gradient(180deg, #878d86 0%, #6f756e 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2;
-        }
-
-        .gb-sticker-strip.left {
-            border-right: 1px solid rgba(0,0,0,0.35);
-        }
-
-        .gb-sticker-strip.right {
-            border-left: 1px solid rgba(0,0,0,0.35);
-        }
-
-        .gb-sticker-strip span {
-            writing-mode: vertical-rl;
-            transform: rotate(180deg);
-            font-size: 6.5px;
-            font-weight: 800;
-            letter-spacing: 0.7px;
-            color: #161816;
-            white-space: nowrap;
-        }
-
-        /* Arte central do jogo dentro do adesivo */
-        .gb-sticker-art {
-            flex: 1;
-            height: 100%;
-            position: relative;
-            background-color: #9e7f1d;
-            background-image:
-                url('cartucho-zelda-dx.jpg'),
-                url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 156'><rect width='140' height='156' fill='%239c7d19'/><polygon points='70,18 112,34 106,96 70,126 34,96 28,34' fill='%234c6b53' stroke='%23d4af37' stroke-width='4'/><polygon points='70,40 94,82 46,82' fill='%23facc15' stroke='%2392400e' stroke-width='2'/><rect x='66' y='12' width='8' height='108' rx='2' fill='%23e5e7eb' stroke='%23374151' stroke-width='2'/><rect x='56' y='92' width='28' height='6' rx='2' fill='%23d97706'/><text x='70' y='44' font-family='Arial,sans-serif' font-size='8' font-weight='bold' fill='%23fef08a' text-anchor='middle'>THE LEGEND OF</text><text x='70' y='74' font-family='Arial,sans-serif' font-size='22' font-weight='900' fill='%23dc2626' stroke='%23fde047' stroke-width='1.2' text-anchor='middle'>ZELDA</text><text x='70' y='92' font-family='Arial,sans-serif' font-size='8.5' font-weight='900' fill='%23ffffff' stroke='%23111827' stroke-width='0.6' text-anchor='middle'>LINK'S AWAKENING</text><text x='98' y='108' font-family='Arial,sans-serif' font-size='14' font-weight='900' fill='%23fde047' stroke='%2378350f' stroke-width='0.8' text-anchor='middle'>DX</text></svg>");
-            background-size: 145% 125%, cover;
-            background-position: center 54%, center;
-            background-repeat: no-repeat, no-repeat;
-            overflow: hidden;
-        }
-
-        /* Reflexo sutil no adesivo ao passar o mouse */
-        .gb-label-sticker::after {
+        /* Reflexo sutil ao passar o mouse / tocar */
+        .gb-cart-showcase::after {
             content: '';
             position: absolute;
-            top: 0; left: -120%;
-            width: 65%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent);
+            top: 0;
+            left: -120%;
+            width: 65%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
             transform: skewX(-25deg);
             transition: left 0.6s ease;
-            z-index: 3;
             pointer-events: none;
         }
 
-        .gb-cart-body:hover .gb-label-sticker::after {
+        .gb-cart-showcase:hover::after {
             left: 160%;
-        }
-
-        /* Triângulo em baixo relevo na base do cartucho */
-        .gb-bottom-triangle {
-            margin-top: 8px;
-            width: 0;
-            height: 0;
-            border-left: 16px solid transparent;
-            border-right: 16px solid transparent;
-            border-top: 16px solid #828189;
-            filter: drop-shadow(0 1px 0 rgba(255,255,255,0.45));
         }
 
         .content { padding: 20px; }
@@ -281,8 +142,8 @@
 
         /* Responsividade para telas de celulares menores */
         @media (max-width: 400px) {
-            .gb-cart-body {
-                transform: scale(0.9) translateZ(20px);
+            .gb-cart-showcase {
+                width: 210px;
             }
         }
     </style>
@@ -294,43 +155,10 @@
     </header>
 
     <div id="game-card">
-        <!-- Cartucho Game Boy Realista 3D -->
+        <!-- Cartucho Game Boy 3D -->
         <div class="cartridge-wrapper" id="cartridge3d">
-            <div class="gb-cart-body">
-                <!-- Topo com ranhuras e logotipo em relevo -->
-                <div class="gb-top-band">
-                    <div class="gb-side-grooves">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <div class="gb-logo-oval">
-                        <span class="gb-logo-text">Nintendo GAME BOY<small>TM</small></span>
-                    </div>
-                    <div class="gb-side-grooves">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-
-                <!-- Cavidade e Adesivo do Cartucho -->
-                <div class="gb-label-recess">
-                    <div class="gb-label-sticker">
-                        <div class="gb-sticker-strip left">
-                            <span>DMG-AZLE-USA</span>
-                        </div>
-                        <div class="gb-sticker-art"></div>
-                        <div class="gb-sticker-strip right">
-                            <span>THIS SIDE OUT</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Triângulo inferior do cartucho -->
-                <div class="gb-bottom-triangle"></div>
+            <div class="gb-cart-showcase">
+                <img src="cartucho-zelda-dx.jpg" alt="Cartucho Game Boy The Legend of Zelda: Link's Awakening DX">
             </div>
         </div>
         
