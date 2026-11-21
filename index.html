@@ -238,7 +238,6 @@
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
         }
 
-        /* Cartucho fallback automático caso a imagem não exista no repositório */
         .fallback-cartridge {
             display: none;
             width: 100%;
@@ -457,15 +456,11 @@
         const startScreen = document.getElementById('gb-start-screen');
         const fallbackCart = document.getElementById('fallback-cart');
 
-        // Tenta nomes alternativos de imagem caso o arquivo no GitHub tenha outro nome
         function handleCartImageError(img) {
             const step = Number(img.dataset.fallbackStep || 0);
             if (step === 0) {
                 img.dataset.fallbackStep = '1';
                 img.src = 'gbc_legendofzeldalinksawakeningdx_3_2.jpg';
-            } else if (step === 1) {
-                img.dataset.fallbackStep = '2';
-                img.src = 'cartucho-zelda-dx.png';
             } else {
                 img.style.display = 'none';
                 fallbackCart.classList.add('active');
