@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
@@ -9,10 +9,6 @@
         :root {
             --gb-shell: #d4d0c8;
             --gb-shell-dark: #a8a39a;
-            --gb-bezel: #3b3d47;
-            --gb-screen-bg: #0f1712;
-            --gb-accent-red: #b91c1c;
-            --gb-accent-blue: #2563eb;
             --gb-neon: #4ade80;
             --ejs-primary-color: #4ade80;
             --ejs-background-color: #090d0a;
@@ -123,7 +119,7 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
         }
 
-        /* Tela de capa no estilo adesivo de cartucho Game Boy */
+        /* Tela de capa com o modelo de cartucho Game Boy */
         #cartridge-cover-overlay {
             position: absolute;
             inset: 10px;
@@ -137,7 +133,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
-            padding: 14px 14px 18px;
+            padding: 12px 14px 16px;
             z-index: 30;
             transition: opacity 0.3s ease, transform 0.3s ease;
         }
@@ -180,20 +176,22 @@
 
         .cover-art-frame {
             position: relative;
-            width: 100%;
-            max-width: 340px;
-            aspect-ratio: 3 / 2;
-            border-radius: 8px;
+            height: min(46dvh, 300px);
+            aspect-ratio: 1 / 1.05;
+            border-radius: 10px;
             overflow: hidden;
             border: 3px solid #d4d0c8;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.55);
-            background: #09090b;
+            background: #d4d0c8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .cover-art-frame img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             display: block;
         }
 
@@ -203,7 +201,7 @@
         }
 
         .cover-title-box h1 {
-            font-size: clamp(16px, 4.5vw, 21px);
+            font-size: clamp(15px, 4.2vw, 20px);
             font-weight: 900;
             color: #f9fafb;
             letter-spacing: 0.4px;
@@ -211,8 +209,8 @@
         }
 
         .cover-title-box p {
-            margin-top: 4px;
-            font-size: 12px;
+            margin-top: 3px;
+            font-size: 11.5px;
             color: #cbd5e1;
         }
 
@@ -265,7 +263,6 @@
             box-shadow: 0 0 6px rgba(239, 68, 68, 0.7);
         }
 
-        /* Ajustes de cores para botões virtuais do EmulatorJS no celular */
         .ejs_virtualGamepad_button {
             box-shadow: 0 4px 0 rgba(0, 0, 0, 0.45), 0 6px 12px rgba(0, 0, 0, 0.3) !important;
             font-weight: 900 !important;
@@ -295,7 +292,7 @@
             </div>
 
             <div class="cover-art-frame">
-                <img src="gbc_legendofzeldalinksawakeningdx_3_2.jpg" alt="Capa do cartucho The Legend of Zelda: Link's Awakening DX">
+                <img src="cartucho-zelda-dx.jpg" alt="Cartucho Game Boy The Legend of Zelda: Link's Awakening DX">
             </div>
 
             <div class="cover-title-box">
@@ -328,9 +325,9 @@
 
         // Nome exato do arquivo .gbc no repositório
         EJS_gameUrl = 'Legend of Zelda, The - Links Awakening DX (USA, Europe) (Rev 2) (SGB Enhanced) (GB Compatible).gbc';
-        EJS_backgroundImage = 'gbc_legendofzeldalinksawakeningdx_3_2.jpg';
+        EJS_backgroundImage = 'cartucho-zelda-dx.jpg';
 
-        // Controles virtuais adaptados para telas de celular (D-Pad, A, B, Select e Start)
+        // Controles virtuais para ecrãs táteis de telemóvel/celular
         EJS_VirtualGamepadSettings = [
             {
                 type: 'dpad',
@@ -383,7 +380,6 @@
             }
         ];
 
-        // Inicia o jogo ao tocar na capa/botão (melhora o áudio e o carregamento no celular)
         startBtn.addEventListener('click', () => {
             coverOverlay.classList.add('hidden');
             if (window.EJS_emulator && typeof window.EJS_emulator.start === 'function') {
