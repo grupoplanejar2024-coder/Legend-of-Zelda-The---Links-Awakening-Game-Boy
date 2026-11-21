@@ -68,7 +68,7 @@
         /* Cartucho Game Boy 3D em destaque */
         .gb-cart-showcase {
             position: relative;
-            width: 250px;
+            width: 240px;
             border-radius: 14px;
             overflow: hidden;
             background: #0d0d0f;
@@ -81,6 +81,96 @@
             width: 100%;
             height: auto;
             object-fit: contain;
+        }
+
+        /* Fallback automático caso cartucho-zelda-dx.jpg falhe */
+        .gb-cart-fallback {
+            display: none;
+            width: 224px;
+            height: 256px;
+            background: linear-gradient(180deg, #a7a6ae 0%, #8e8d95 100%);
+            border-radius: 6px 4px 5px 5px;
+            clip-path: polygon(0 0, calc(100% - 20px) 0, calc(100% - 20px) 15px, 100% 15px, 100% 100%, 0 100%);
+            padding: 14px 12px 10px 12px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: inset 0 2px 3px rgba(255,255,255,0.55), inset 0 -4px 7px rgba(0,0,0,0.4);
+        }
+
+        .gb-cart-fallback.active {
+            display: flex;
+        }
+
+        .gb-fb-top {
+            width: 100%;
+            padding: 5px 8px;
+            border-radius: 14px;
+            background: #9a99a1;
+            box-shadow: inset 0 2px 3px rgba(0,0,0,0.35), 0 1px 1px rgba(255,255,255,0.4);
+            text-align: center;
+            font-size: 10px;
+            font-weight: 900;
+            font-style: italic;
+            color: #6f6e76;
+        }
+
+        .gb-fb-sticker {
+            width: 176px;
+            height: 164px;
+            border-radius: 4px;
+            border: 2px solid #2b2618;
+            background: linear-gradient(90deg, #7f857e 0 18px, #a3841b 18px calc(100% - 18px), #7f857e calc(100% - 18px) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 22px;
+            text-align: center;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.45);
+        }
+
+        .gb-fb-sticker small {
+            font-size: 7px;
+            font-weight: 800;
+            letter-spacing: 0.8px;
+            color: #fef08a;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+        }
+
+        .gb-fb-sticker strong {
+            margin-top: 2px;
+            font-size: 20px;
+            font-weight: 900;
+            line-height: 1;
+            color: #dc2626;
+            -webkit-text-stroke: 0.7px #fde047;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.75);
+        }
+
+        .gb-fb-sticker span {
+            margin-top: 4px;
+            font-size: 8px;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.85);
+        }
+
+        .gb-fb-sticker b {
+            margin-top: 4px;
+            font-size: 13px;
+            font-weight: 900;
+            color: #fde047;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.85);
+        }
+
+        .gb-fb-tri {
+            width: 0;
+            height: 0;
+            border-left: 14px solid transparent;
+            border-right: 14px solid transparent;
+            border-top: 14px solid #828189;
         }
 
         /* Reflexo sutil ao passar o mouse / tocar */
@@ -158,7 +248,22 @@
         <!-- Cartucho Game Boy 3D -->
         <div class="cartridge-wrapper" id="cartridge3d">
             <div class="gb-cart-showcase">
-                <img src="cartucho-zelda-dx.jpg" alt="Cartucho Game Boy The Legend of Zelda: Link's Awakening DX">
+                <img
+                    id="cartridge-img"
+                    src="cartucho-zelda-dx.jpg"
+                    alt="Cartucho Game Boy The Legend of Zelda: Link's Awakening DX"
+                    onerror="showFallbackCartridge(this)"
+                >
+                <div id="cartridge-fallback" class="gb-cart-fallback" aria-hidden="true">
+                    <div class="gb-fb-top">Nintendo GAME BOY TM</div>
+                    <div class="gb-fb-sticker">
+                        <small>THE LEGEND OF</small>
+                        <strong>ZELDA</strong>
+                        <span>LINK'S AWAKENING</span>
+                        <b>DX</b>
+                    </div>
+                    <div class="gb-fb-tri"></div>
+                </div>
             </div>
         </div>
         
@@ -190,6 +295,14 @@
     </div>
 
     <script type="text/javascript">
+        function showFallbackCartridge(img) {
+            img.style.display = 'none';
+            const fallback = document.getElementById('cartridge-fallback');
+            if (fallback) {
+                fallback.classList.add('active');
+            }
+        }
+
         // Efeito 3D interativo
         const card = document.getElementById('game-card');
         const cartridge = document.getElementById('cartridge3d');
